@@ -1,14 +1,9 @@
-# Step 1: Use a lightweight base image with Java runtime
-FROM openjdk:17-jdk-slim
+FROM nginx:latest
 
-# Step 2: Set the working directory inside the container
-WORKDIR /app
+COPY target/*.war /usr/share/nginx/html
 
-# Step 3: Copy the JAR file from the host to the container
-COPY target/vprofile-app.jar app.jar
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Step 4: Expose the application port (optional)
-EXPOSE 5050
+EXPOSE 80
 
-# Step 5: Define the command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["nginx", "-g", "daemon off;"]
