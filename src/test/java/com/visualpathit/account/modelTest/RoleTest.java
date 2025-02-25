@@ -31,7 +31,7 @@ public class RoleTest {
     	users.add(user);    	
     	role = new Role();
     	role.setId(1L);
-        role.setName("Root");
+        role.setName("Admin");
         role.setUsers(users);
     }
 
