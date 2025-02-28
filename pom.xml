@@ -11,7 +11,7 @@
     <distributionManagement>
       <snapshotRepository>
         <id>nexus</id>
-        <url>http://54.221.156.154:8081/repository/vprofile-snapshots</url>
+        <url>http://54.163.25.176:8081/repository/vprofile-snapshots</url>
       </snapshotRepository>
     </distributionManagement>
 
