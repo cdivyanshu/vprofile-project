@@ -1,9 +1,11 @@
-FROM nginx:latest
+# Use Tomcat base image
+FROM tomcat:latest
 
-COPY target/*.war /usr/share/nginx/html
+# Copy the WAR file into Tomcat’s webapps directory
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expose port 8080 for Tomcat
+EXPOSE 8080
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start Tomcat
+CMD ["catalina.sh", "run"]
