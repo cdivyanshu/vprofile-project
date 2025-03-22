@@ -9,9 +9,13 @@
     <url>http://maven.apache.org</url>
 
     <distributionManagement>
+      <repository>
+        <id>nexus</id>
+        <url>http://54.227.24.57:8081/repository/maven-releases/</url>
+      </repository>
       <snapshotRepository>
         <id>nexus</id>
-        <url>http://34.230.19.238:8081/repository/vprofile-snapshots</url>
+        <url>http://54.227.24.57:8081/repository/vprofile-snapshots</url>
       </snapshotRepository>
     </distributionManagement>
 
