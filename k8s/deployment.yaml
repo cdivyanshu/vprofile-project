@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprofile-deployment
+  labels:
+    app: vprofile
+spec:
+  replicas: 3  # Number of instances
+  selector:
+    matchLabels:
+      app: vprofile
+  template:
+    metadata:
+      labels:
+        app: vprofile
+    spec:
+      containers:
+        - name: vprofile
+          image: cdivyaanshu/vprofile:latest  # Replace with your DockerHub image
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATABASE_HOST
+              value: "mysql-service"  # Replace with your actual DB service name
+            - name: DATABASE_PORT
+              value: "3306"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
