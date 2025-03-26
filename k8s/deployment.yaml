@@ -5,7 +5,7 @@ metadata:
   labels:
     app: vprofile
 spec:
-  replicas: 3  # Number of instances
+  replicas: 3
   selector:
     matchLabels:
       app: vprofile
@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
         - name: vprofile
-          image: cdivyaanshu/vprofile:latest  # Replace with your DockerHub image
+          image: cdivyaanshu/vprofile:latest
           ports:
             - containerPort: 8080
           env:
             - name: DATABASE_HOST
-              value: "mysql-service"  # Replace with your actual DB service name
+              value: "mysql-service"
             - name: DATABASE_PORT
               value: "3306"
           resources:
